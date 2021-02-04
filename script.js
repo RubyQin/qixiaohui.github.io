@@ -10,5 +10,14 @@ function alertBuy() {
   
   var productNum = document.getElementById("numSelect").value;
   
-  alert("You've just bought " + productNum + " " + product + "(s)!");
+  const postObj = {
+    pcmPixelPostMessageEvent: {
+        id: '12345',
+        ev: 'Purchase',
+        cd: '{"currency":"USD","value":"0.00"}'
+    }
+  };
+  window.postMessage(postObj, 'github.com');
+  
+  alert("You've just bought on Yizhu's iframe " + productNum + " " + product + "(s)!");
 }
