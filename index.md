@@ -33,12 +33,3 @@
 ### Go to [Facebook](https://www.facebook.com)
 
 <script src="script.js"></script>
-<script type='text/javascript'>
-  window.onload = function() {
-    var iframe = document.createElement('iframe');
-    iframe.src = "https://qixiaohui.github.io/";
-    iframe.height = 200;
-    iframe.width = 500;
-    document.body.appendChild(iframe);
-  }
-</script>
