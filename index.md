@@ -37,10 +37,8 @@
   var nativeBridge = window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.receiveImgPixel;
 if (nativeBridge) {
     const postObj = {
-      pcmPixelPostMessageEvent: {
-          id: '54321',
-          ev: 'YizhuViewContent',
-      }
+        id: '54321',
+        ev: 'YizhuViewContent',
     };
     nativeBridge.postMessage(JSON.stringify(postObj));
 }
