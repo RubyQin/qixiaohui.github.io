@@ -10,14 +10,17 @@ function alertBuy() {
   
   var productNum = document.getElementById("numSelect").value;
   
-  const postObj = {
-    pcmPixelPostMessageEvent: {
-        id: '12345',
-        ev: 'Purchase',
-        cd: '{"currency":"USD","value":"0.00"}'
-    }
-  };
-  window.postMessage(postObj, 'github.com');
+  var nativeBridge = window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.receiveImgPixel;
+  if (nativeBridge) {
+    const postObj = {
+      pcmPixelPostMessageEvent: {
+          id: '12345',
+          ev: 'YizhuPurchase',
+          cd: '{"currency":"USD","value":"0.00"}'
+      }
+    };
+    nativeBridge.postMessage(JSON.stringify(postObj));
+}
   
   alert("You've just bought on Yizhu's iframe " + productNum + " " + product + "(s)!");
 }
